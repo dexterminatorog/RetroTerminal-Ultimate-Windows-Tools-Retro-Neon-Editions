@@ -1,0 +1,53 @@
+@echo off
+title Retro Terminal Assistant
+color 0A
+mode con: cols=80 lines=25
+
+echo Initializing Retro Terminal...
+ping -n 2 127.0.0.1 >nul
+
+cls
+echo ================================================
+echo              RETRO TERMINAL ASSISTANT
+echo ================================================
+echo Booting system...
+ping -n 2 127.0.0.1 >nul
+
+echo Loading modules [#####-----] 50%
+ping -n 2 127.0.0.1 >nul
+
+echo Loading modules [##########] 100%
+ping -n 2 127.0.0.1 >nul
+
+cls
+echo ================================================
+echo              RETRO TERMINAL ASSISTANT
+echo ================================================
+echo 1. Show Date & Time
+echo 2. Show Local IP
+echo 3. Open User Folder
+echo 4. Exit
+echo ================================================
+set /p choice="Select an option: "
+
+if "%choice%"=="1" (
+    echo.
+    echo Current date/time:
+    echo %DATE% %TIME%
+    pause
+    exit
+)
+
+if "%choice%"=="2" (
+    echo.
+    ipconfig | findstr /i "IPv4"
+    pause
+    exit
+)
+
+if "%choice%"=="3" (
+    start %USERPROFILE%
+    exit
+)
+
+exit
